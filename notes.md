@@ -35,6 +35,7 @@ Skip to content?
 Outline for video:
 
 Accessibility overview
+
 Install NVDA
 basic controls, Ctrl, navigating headlines and regions and down
 SaraSoueidan.com website
