@@ -1,19 +1,64 @@
 html , body{
     padding: 0;
     margin: 0;
+    background-color: black;
 }
 h1{
+    color: blueviolet;
     text-align: center;
 }
 #container{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* flex-direction: column; */
+    /* display: block; */
     padding: auto;
     margin: auto;
     border: 3px solid red;
     height: 400px;
     width: 400px;
+    background-color: aqua;
+    border-radius: 10px;
 }
 #result{
     border: 2px solid green;
-    height: 20%;
+    height: 15%;
     width: 70%;
-    margin: 10px;
+    margin:5px;
+    margin-top: 20px;
+    margin-right: 0px;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+#reset{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    height: 15%;
+    width: 18%;
+    margin: 5px;
+    margin-top: 20px;
+    margin-left: 15px;
+    background-color: brown; 
+    border-radius: 5px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px ;
+    color: antiquewhite;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: solid;
+    border: 2px solid purple;
+    width: 20%;
+    height: 50px;
+    margin: auto;
+    padding: auto;
+    background-color: limegreen;
+}
