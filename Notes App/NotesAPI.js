@@ -5,24 +5,28 @@ export default class NotesAPI{
         return notes;
     }
 
-    static saveNote(noteToSave){
+    static saveNote(noteToSave) {
         const notes = NotesAPI.getAllNotes();
-        const existing =notes.find(note => note.id == noteToSave.id);
+        const existing = notes.find(note => note.id == noteToSave.id);
 
-        if(existing){
+        // Edit/Update
+        if (existing) {
             existing.title = noteToSave.title;
-            existing.body= noteToSave.body;
-            existing.updated = new Date().toISOString();;
-        }else{
-            noteToSave.id= Math.floor(Math.random() *1000000);
-            noteToSave.updated= new Date().toISOString();
+            existing.body = noteToSave.body;
+            existing.updated = new Date().toISOString();
+        } else {
+            noteToSave.id = Math.floor(Math.random() * 1000000);
+            noteToSave.updated = new Date().toISOString();
             notes.push(noteToSave);
         }
 
-        localStorage.setItem("notesapp-notes",JSON.stringify(notes));
+        localStorage.setItem("notesapp-notes", JSON.stringify(notes));
     }
 
     static deleteNote(id){
+        const notes = NotesAPI.getAllNotes();
+        const newNotes = notes.filter(note => note.id != id);
 
+        localStorage.setItem("notesapp-notes", JSON.stringify(newNotes));
     }
 }
