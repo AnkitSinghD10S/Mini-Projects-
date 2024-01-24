@@ -10,7 +10,7 @@ const num9=document.getElementById("num9")
 const num0=document.getElementById("num0")
 
 let resultEl= document.getElementById("result")
-let opreation
+
 const multiEl =document.getElementById("multi")
 const divEl =document.getElementById("div")
 const subEl =document.getElementById("sub")
@@ -23,66 +23,111 @@ let secondNum=0
 let flag=true
 restEl.addEventListener("dblclick",function(){
     resultEl.textContent="";
+    firstNum=0;
+    secondNum=0;
     console.log("cliked")
 })
-
 num1.addEventListener("click",function(){
-    if(flag){
-    firstNum =10*firstNum + int(num1.textContent);
-    resultEl.textContent+=firstNum;
-    }
-    else{
-        secondNum =10*secondNum+num1.textContent;
-    }
-    // console.log(firstNum)
+    let num = num1.textContent;
+    resultEl.textContent+=num;
 })
+
 num2.addEventListener("click",function(){
     let num = num2.textContent;
-    resultEl.textContent+=num;
-    firstNum=resultEl.textContent
-    // console.log(firstNum)
+    resultEl.textContent+=num;  
 })
+
 num3.addEventListener("click",function(){
     let num = num3.textContent;
     resultEl.textContent+=num;
-    firstNum=resultEl.textContent
-    // console.log(firstNum)
 })
+
 num4.addEventListener("click",function(){
     let num = num4.textContent;
     resultEl.textContent+=num;
-    // console.log(firstNum)
 })
+
 num5.addEventListener("click",function(){
     let num = num5.textContent;
     resultEl.textContent+=num;
-    // console.log(firstNum)
 })
+
 num6.addEventListener("click",function(){
     let num = num6.textContent;
     resultEl.textContent+=num;
-    // console.log(firstNum)
 })
+
 num7.addEventListener("click",function(){
     let num = num7.textContent;
     resultEl.textContent+=num;
-    // console.log(firstNum)
 })
+
 num8.addEventListener("click",function(){
     let num = num8.textContent;
     resultEl.textContent+=num;
-    // console.log(firstNum)
 })
+
 num9.addEventListener("click",function(){
     let num = num9.textContent;
     resultEl.textContent+=num;
-    // console.log(firstNum)
 })
+
 num0.addEventListener("click",function(){
     let num = num0.textContent;
     resultEl.textContent+=num;
-    // console.log(firstNum)
 })
+
 sumEl.addEventListener("click",function(){
-    
+    resultEl.textContent+="+";
+})
+
+subEl.addEventListener("click",function(){
+    resultEl.textContent+="-";
+})
+
+divEl.addEventListener("click",function(){
+    resultEl.textContent+="/";
+})
+
+multiEl.addEventListener("click",function(){
+    resultEl.textContent+="*";
+})
+
+
+calEl.addEventListener("click",function(){
+    const result = resultEl.textContent;
+    let first =""
+    let second =""
+    let operation =""
+    for(let i=0;i<result.length;i++){
+        if(result.charAt(i)!='+' && result.charAt(i)!='-' && result.charAt(i)!='*' && result.charAt(i)!='/'&& flag == true){
+            first+=result.charAt(i)
+        }
+        if(result.charAt(i)=='+' || result.charAt(i)=='-' ||result.charAt(i)=='*' || result.charAt(i)=='/'){
+            operation=result.charAt(i)
+            flag=false
+        }
+        if(result.charAt(i)!='+' && result.charAt(i)!='-' && result.charAt(i)!='+*' &&  result.charAt(i)!='/'&& flag == false){
+            second +=result.charAt(i)
+        }
+    }
+    firstNum=Number(first)
+    secondNum=Number(second)
+    if(operation=='+'){
+        resultEl.textContent=(firstNum+secondNum)
+        flag=true
+    }
+    if(operation=='-'){
+        resultEl.textContent=(firstNum-secondNum)
+        flag=true
+
+    }
+    if(operation=='*'){
+        resultEl.textContent=(firstNum*secondNum)
+        flag=true
+    }
+    if(operation=='/'){
+        resultEl.textContent=(firstNum/secondNum)
+        flag=true
+    }
 })
