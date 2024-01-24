@@ -1,8 +1,9 @@
 import NotesAPI from "./NotesAPI.js"
 
 NotesAPI.saveNote({
-    title: "New note !", 
+    id: 857990,
+    title: "New note ram!", 
     body: "I am a new notes."
-});
+});+
 
 console.log(NotesAPI.getAllNotes());
