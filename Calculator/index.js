@@ -93,6 +93,10 @@ multiEl.addEventListener("click",function(){
     resultEl.textContent+="*";
 })
 
+dotEl.addEventListener("click",function(){
+    resultEl.textContent+=".";
+})
+
 
 calEl.addEventListener("click",function(){
     const result = resultEl.textContent;
