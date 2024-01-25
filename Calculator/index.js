@@ -114,6 +114,7 @@ calEl.addEventListener("click",function(){
         if(result.charAt(i)!='+' && result.charAt(i)!='-' && result.charAt(i)!='+*' &&  result.charAt(i)!='/'&& flag == false){
             second +=result.charAt(i)
         }
+        
     }
     firstNum=Number(first)
     secondNum=Number(second)
