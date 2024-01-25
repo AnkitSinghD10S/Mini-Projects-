@@ -21,7 +21,7 @@ const  dotEl =document.getElementById("float")
 let firstNum=0
 let secondNum=0
 let flag=true
-restEl.addEventListener("dblclick",function(){
+restEl.addEventListener("click",function(){
     resultEl.textContent="";
     firstNum=0;
     secondNum=0;
