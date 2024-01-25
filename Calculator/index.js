@@ -103,36 +103,67 @@ calEl.addEventListener("click",function(){
     let first =""
     let second =""
     let operation =""
-    for(let i=0;i<result.length;i++){
-        if(result.charAt(i)!='+' && result.charAt(i)!='-' && result.charAt(i)!='*' && result.charAt(i)!='/'&& flag == true){
-            first+=result.charAt(i)
+
+    if(result.charAt(0)=='-'){
+        first+=result.charAt(0);
+        for(let i=1;i<result.length;i++){
+            if(result.charAt(i)!='+' && result.charAt(i)!='-' && result.charAt(i)!='*' && result.charAt(i)!='/'&& flag == true){
+                first+=result.charAt(i)
+            }
+            if(result.charAt(i)=='+' || result.charAt(i)=='-' ||result.charAt(i)=='*' || result.charAt(i)=='/'){
+                operation=result.charAt(i)
+                flag=false
+            }
+            if(result.charAt(i)!='+' && result.charAt(i)!='-' && result.charAt(i)!='*' &&  result.charAt(i)!='/'&& flag == false){
+                second +=result.charAt(i)
+            }   
         }
-        if(result.charAt(i)=='+' || result.charAt(i)=='-' ||result.charAt(i)=='*' || result.charAt(i)=='/'){
-            operation=result.charAt(i)
-            flag=false
+    }
+    else{
+        for(let i=0;i<result.length;i++){
+            if(result.charAt(i)!='+' && result.charAt(i)!='-' && result.charAt(i)!='*' && result.charAt(i)!='/'&& flag == true){
+                first+=result.charAt(i)
+            }
+            if(result.charAt(i)=='+' || result.charAt(i)=='-' ||result.charAt(i)=='*' || result.charAt(i)=='/'){
+                operation=result.charAt(i)
+                flag=false
+            }
+            if(result.charAt(i)!='+' && result.charAt(i)!='-' && result.charAt(i)!='*' &&  result.charAt(i)!='/'&& flag == false){
+                second +=result.charAt(i)
+            }   
         }
-        if(result.charAt(i)!='+' && result.charAt(i)!='-' && result.charAt(i)!='+*' &&  result.charAt(i)!='/'&& flag == false){
-            second +=result.charAt(i)
-        }
-        
     }
     firstNum=Number(first)
     secondNum=Number(second)
+    console.log(firstNum)
+    console.log(secondNum)
     if(operation=='+'){
         resultEl.textContent=(firstNum+secondNum)
-        flag=true
+        firstNum=firstNum/secondNum
+        if(firstNum!=0){
+            flag=true
+        }
     }
     if(operation=='-'){
         resultEl.textContent=(firstNum-secondNum)
-        flag=true
+        firstNum=firstNum/secondNum
+        if(firstNum!=0){
+            flag=true
+        }
 
     }
-    if(operation=='*'){
+    if(operation=='*'){ 
         resultEl.textContent=(firstNum*secondNum)
-        flag=true
+        firstNum=firstNum/secondNum
+        if(firstNum!=0){
+            flag=true
+        }
     }
     if(operation=='/'){
         resultEl.textContent=(firstNum/secondNum)
-        flag=true
+        firstNum=firstNum/secondNum
+        if(firstNum!=0){
+            flag=true
+        }
     }
 })
