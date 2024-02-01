@@ -6,7 +6,7 @@
     user-select: none;
 }
 body{
-    background-color: #222;
+    background: linear-gradient(95deg,#153677,#4e085f);
 }
 .card{
     width: 90%;
